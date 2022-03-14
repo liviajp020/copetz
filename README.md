@@ -1,0 +1,2 @@
+# copetz
+Game Copetz IGSi
