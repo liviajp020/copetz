@@ -5,16 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 07043aeece2f7434c98be9886d7ddcac
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Loading.unity
     guid: 7e199869339aac54e8784eb563c65c05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TuyulNgepet.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/TuyulNgepet2.unity
+    path: Assets/Scenes/Main_Menu.unity
+    guid: 5622e4f582f39dd4c87f5139701c2ddd
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
     guid: 5a472a7154b420742aad1da78261c6f1
   m_configObjects: {}
