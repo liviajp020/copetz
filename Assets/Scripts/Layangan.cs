@@ -8,7 +8,8 @@ public class Layangan : MonoBehaviour
     public float speed;
     public Transform startPos;
     Vector3 nextpos;
-
+    bool isFlying = false;
+    public GameObject pijakan;
     public void Start()
     {
         nextpos = startPos.position;
@@ -16,20 +17,26 @@ public class Layangan : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isFlying)
         {
             nextpos = position2.position;
         }
-        if (transform.position == position2.position)
+        if (transform.position.y > 0.5f)
         {
-            nextpos = position1.position;
+            pijakan.SetActive(true);
+            GetComponent<BoxCollider2D>().enabled = false;
+
         }
-
-        transform.position = Vector3.MoveTowards(transform.position, nextpos, speed * Time.deltaTime);
-
-        void OnDrawGizmos()
+        else
         {
-            Gizmos.DrawLine(position1.position, position2.position);
+
+            transform.position = Vector3.MoveTowards(transform.position, nextpos, speed * Time.deltaTime);
         }
     }
+
+    private void OnMouseDown()
+    {
+        pijakan.SetActive(false);
+        isFlying = true;
     }
+}

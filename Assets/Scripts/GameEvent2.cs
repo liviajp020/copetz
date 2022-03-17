@@ -12,9 +12,7 @@ public class GameEvent2 : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            animator.SetBool("isEvent2", true);
-
-
+            collision.GetComponent<Player>().PlayerDead();
         }
     }
 
