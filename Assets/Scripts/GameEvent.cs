@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class GameEvent : MonoBehaviour
 {
-    public Animator animator;
+    public Animator yuyul;
+    public bool isDeadEvent;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if(collision.gameObject.name=="Player")
+        if (collision.gameObject.name == "Player")
         {
-            animator.SetBool("isEvent1", true);
+            if (isDeadEvent)
+            {
+                GameObject.Find("Player").GetComponent<Player>().PlayerDead();
+            }
+            else // when enemy attacking
+            {
+                yuyul.SetBool("attacking", true);
+            }
+            Destroy(gameObject);
         }
     }
-
-   
 }

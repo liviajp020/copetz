@@ -9,7 +9,8 @@ public class Layangan : MonoBehaviour
     public Transform startPos;
     Vector3 nextpos;
     bool isFlying = false;
-    public GameObject pijakan;
+    public GameObject[] pijakan;
+    public GameObject bocah;
     public void Start()
     {
         nextpos = startPos.position;
@@ -23,7 +24,11 @@ public class Layangan : MonoBehaviour
         }
         if (transform.position.y > 0.5f)
         {
-            pijakan.SetActive(true);
+            for (int i = 0; i < pijakan.Length; i++)
+            {
+                pijakan[i].SetActive(true);
+
+            }
             GetComponent<BoxCollider2D>().enabled = false;
 
         }
@@ -36,7 +41,12 @@ public class Layangan : MonoBehaviour
 
     private void OnMouseDown()
     {
-        pijakan.SetActive(false);
+        for (int i = 0; i < pijakan.Length; i++)
+        {
+            pijakan[i].SetActive(false);
+
+        }
         isFlying = true;
+        bocah.GetComponent<Animator>().SetBool("LayanganTerbang", true);
     }
 }

@@ -6,12 +6,12 @@ public class KabelPutus : MonoBehaviour
 {
 
     public GameObject kabelPutus;
- 
+    public BoxCollider2D cableCollider;
    
     private void OnMouseDown()
     {
         GetComponent<Animator>().SetBool("KenaBulan", true);
-        GetComponent<BoxCollider2D>().enabled = false;
+        cableCollider.enabled = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

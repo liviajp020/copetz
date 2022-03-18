@@ -5,13 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class finish : MonoBehaviour
 {
-    public Animator animator;
+    public GameObject winPanel;
+    public float timerToShowPanel;
+
+    private bool isWin;
+
+    private void Update()
+    {
+        if(isWin)
+        {
+            timerToShowPanel -= Time.deltaTime;
+        }
+
+        if(timerToShowPanel < 0f)
+        {
+            winPanel.SetActive(true);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player")
         {
-            animator.SetBool("Win", true);
+            isWin = true;
         }
     }
 }
